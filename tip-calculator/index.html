@@ -85,7 +85,7 @@
         
             tipPer = parseInt(DOMstrings.tipPt.value);
             people = parseInt(DOMstrings.pp.value);
-            calctip = Math.round(((tipPer/100) * billAmount)/people)
+            calctip = (((tipPer/100) * billAmount)/people)
 
             if (calctip > 0){
                 return alert("Your tip amount is:" + " " + calctip)
