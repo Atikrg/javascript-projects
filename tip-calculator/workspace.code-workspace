@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\udemy-javascript-course\\complete-javascript-course-1\\complete-javascript-course-1\\4-DOM-pig-game\\final"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "javascript-projects"
+	}
+}
