@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myTipCalculator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-green-100">
+    
+
+
+<div class="justify-center text-2xl mt-64 bg-green-200 rounded-lg sm:text-center"  id="container">
+
+    <div class="input-container pt-4">
+
+<div class="billAmount ">
+    <label for="billAmt">Bill Amount &nbsp :</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"
+        placeholder="Enter Bill Amount" class="billAmt text-xl p-2 w-64 focus:outline-white focus:border-green-800 ml-4 t">
+</div>
+<br>
+
+<div class="tipPercent">
+    <label for="tipAmt">Tip Amount % &nbsp :</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"
+        placeholder="Enter Tip" class=" tipPt text-xl p-2 w-64 focus:outline-white ml-4 t">
+</div>
+<br>
+<div class="people">
+    <label for="ppl">How many People &nbsp :</label>&nbsp<input type="text" placeholder="Enter Number of people"
+        class="pp text-xl p-2 w-64 focus:outline-white ml-4 t">
+</div>
+
+<br>
+<br>
+<div class="flex buttons ">
+    <div class="clear m-2 p-2">
+        <input type="button" value="Clear"
+            class="m-4 p-4 border rounded-2xl bg-red-500 w-24 focus:bg-red-700 focus:outline-none text-white font-semibold">
+    </div>
+
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="calculate-tip m-2 p-2 focus:none">
+        <input type="button" value="Calculate"
+            class="calculate m-4 p-4 border rounded-2xl bg-green-500 focus:bg-green-700 focus:outline-none text-white font-semibold">
+    </div>
+</div>
+
+
+    </div>
+    
+
+
+
+
+
+</div>
+
+<script>
+
+    var DOMstrings = {
+        billAmt : document.querySelector('.billAmt'),
+        tipPt : document.querySelector('.tipPt'),
+        pp : document.querySelector('.pp')
+    }
+
+        var clear = document.querySelector('.clear')
+        clear.addEventListener('click', function(){
+          DOMstrings.billAmt.value = '';
+          DOMstrings.tipPt.value = '';
+          DOMstrings.pp.value = '';
+        })
+
+
+        var calculate = document.querySelector('.calculate')
+        calculate.addEventListener('click', function(){
+            var billAmount, tipPer, people, clactip;
+
+            billAmount = parseInt(DOMstrings.billAmt.value);
+        
+            tipPer = parseInt(DOMstrings.tipPt.value);
+            people = parseInt(DOMstrings.pp.value);
+            calctip = (((tipPer/100) * billAmount)/people)
+
+            if (calctip > 0){
+                return alert("Your tip amount is:" + " " + calctip)
+                }
+                else{
+                    return alert("Cannot calculate tip: " + "  "  + " \nEnter valid Input," + " " +  "\nDont use special symbols");
+                } 
+
+            }
+
+        );
+        
+            
+         
+       
+
+    
+        
+    
+    
+
+    
+
+</script>
+</body>
+</html>

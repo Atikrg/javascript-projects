@@ -1,0 +1,17 @@
+//[filter]
+const deposits = movements.filter((mov)=>(mov >0));
+console.log(deposits);
+
+const withdrawal = movements.filter(mov => mov < 0);
+console.log(withdrawal)
+
+//[reduce]
+const movements = [3,4,1,-1,-9]
+const balance = movements
+.reduce(function(acc, cur, i, arr){
+ return acc + cur
+}, 0);
+
+console.log(balance)
+
+//coding challenge - 3

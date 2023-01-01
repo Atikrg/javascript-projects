@@ -1,0 +1,28 @@
+body{
+    text-decoration: none;
+    margin: 0;
+    padding:0;
+    justify-content: center;
+    display: flex;
+    
+}
+#container{
+    top: 20%;
+    position:absolute;
+    height: 400px;
+    width: 600px;
+    padding: 20px;
+    margin: 12px;
+    padding-top: 34px;
+    padding-bottom: 56px;
+    margin-left: 12px;
+}
+.buttons{
+    margin-top: -42px;
+}
+.input-container{
+    margin-left: 24px;
+}
+.my-billAmt{
+    border-style: dotted;
+}

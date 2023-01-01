@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/da671fb38f.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        display: flex;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        list-style-type: none;
+        box-sizing: border-box;
+
+
+    }
+
+    ul li:hover {
+        background-color: rgb(247, 220, 170);
+
+
+    }
+
+    ul li.checked {
+        background: rgb(255, 147, 47);
+        text-decoration: line-through;
+        color: white;
+    }
+
+    .container {
+        position: absolute;
+        overflow: scroll;
+        height: 600px;
+        width: 800px;
+        top: 5%;
+    }
+
+    .top:after {
+        clear: both;
+        content: "";
+        display: table;
+
+    }
+
+    .add {
+        text-decoration: none;
+
+    }
+
+    .add {
+        font-size: 24px;
+    }
+
+    .title {
+        width: 476px;
+        margin-left: 100px
+    }
+
+    .my-ul {
+        padding: 2px;
+        margin: 2px;
+        margin-bottom: 4px;
+        ;
+    }
+
+    .cancel {
+        float: right;
+    }
+
+    .cancel:hover {
+        color: rgb(255, 0, 0);
+    }
+
+    .cancel:focus {
+        outline: none;
+    }
+</style>
+
+
+
+<body class="bg-gray-200">
+
+    <div class="container  bg-yellow-400 justify-center rounded-lg">
+
+        <div class="top bg-red-500 w-full h-40 rounded-sm p-6">
+
+            <div class="my-to-do p-4">
+                <p class=" text-white font-bold text-2xl ml-56"> &nbsp&nbsp&nbsp&nbsp My To Do List</p>
+            </div>
+            <div class="input-name p-2">
+                <input type="text" class="title p-2 focus:outline-none" placeholder="Enter Title..."><input
+                    type="button" value="Add" onclick="newElement()"
+                    class="addBtn p-2 bg-gray-200 focus:border-gray-300 text-md hover:bg-gray-300">
+            </div>
+        </div>
+
+        <div class=bottom>
+
+
+
+
+            <div class="add">
+                <div class="list p-6 pb-6 font-medium m-4">
+                    <ul id=my-ul>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+        var list = document.querySelector('ul')
+        list.addEventListener('click', function (ev) {
+            if (ev.target.tagName === "LI") {
+                ev.target.classList.toggle('checked');
+
+            }
+
+        }, false);
+
+        window.onload = function () {
+            var title = document.querySelector('title')
+            title.focus()
+            title.value = '';
+        }
+
+        function newElement() {
+            var input = document.querySelector('.title');
+
+            var li = document.createElement('li');
+            var inputValue = document.querySelector('.title').value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            //Delete button
+            var span = document.createElement('button');
+            span.classList.add('cancel');
+            span.innerHTML = '<i class="far fa-times-circle fa-x mr-6"></i>'
+            li.appendChild(span);
+
+
+            if (inputValue === '') {
+                alert("You must type Something")
+            } else {
+                document.getElementById('my-ul').appendChild(li);
+            }
+            input.value = '';
+
+
+            var close = document.getElementsByClassName("cancel");
+            var i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
